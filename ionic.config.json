@@ -1,0 +1,7 @@
+{
+  "name": "stand-up-raffle-ypp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
