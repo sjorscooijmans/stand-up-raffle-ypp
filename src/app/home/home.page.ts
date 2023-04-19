@@ -6,15 +6,18 @@ import {
   style,
   animate,
   transition,
-  keyframes
+  keyframes,
 } from '@angular/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  standalone: true,
-  imports: [IonicModule],
+  // standalone: true,
+  // imports: [BrowserAnimationsModule],
   animations: [
     trigger('rotating', [
       state('begin', style({
@@ -34,8 +37,8 @@ export class HomePage {
   start = true
 
   personen = [
-    {name: 'sjors', image: 'assets/personen/Leo.PNG'},
-    {name: 'leonard', image: 'assets/personen/Sjors.PNG'},
+    {name: 'leonard', image: 'assets/personen/Leo.PNG'},
+    {name: 'sjors', image: 'assets/personen/sjors.png'},
     {name: 'martijn', image: 'assets/personen/Martijn.PNG'},
   ]
   constructor() { }
