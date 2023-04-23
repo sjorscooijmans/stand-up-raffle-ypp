@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
 import {
   trigger,
   state,
@@ -8,9 +7,6 @@ import {
   transition,
   keyframes,
 } from '@angular/animations';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -39,14 +35,32 @@ export class HomePage {
   personen = [
     {name: 'leonard', image: 'assets/personen/Leo.PNG'},
     {name: 'sjors', image: 'assets/personen/sjors.png'},
-    {name: 'martijn', image: 'assets/personen/Martijn.PNG'},
+    {name: 'test', image: 'assets/ppics/SjorsCooijmans.jpg'}
   ]
-  constructor() { }
+
+  names: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BobBontje.jpg', 'BrittBroekman.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DaphneTetering.jpg', 'DeveneyPanfred.jpg', 'DiederikHagenbeek.jpg', 'DirkRoest.jpg', 'EmilieFacon.jpg', 'EvitaHoogeveen.jpg', 'FilippoBizzotto.jpg', 'FrancescaNiekerk.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'HuguetteElleswijk.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JoranEems.jpg', 'KellyWeenink.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LeonardMahieu.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LuisBarros Ramirez.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MarcGlowienke.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MeikeHendriks.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'OfekSverdlov.jpg', 'PauloFijen.jpg', 'PedroIraburu.jpg', 'PimDoodkorte.jpg', 'RemcoBruggen.jpg', 'RobSpreeuwel.jpg', 'RohanChatterjee.jpg', 'RomyRouwendaal.jpg', 'SaluteJingkaojai.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjorsCooijmans.jpg', 'SoniaKaczmarek.jpg', 'StanSolinge.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'YannikPeeters.jpg']
+  images: string[] = []
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.images = this.names.map(item => `assets/ppics/${item}`)
+    console.log(this.images)
   }
 
-  ionViewWillEnter(){
-    console.log('test')
+  async ionViewWillEnter(){
+    this.images = this.shuffle(this.images)
   }
+
+  shuffle([...arr]){
+    let m = arr.length;
+    while (m) {
+      const i = Math.floor(Math.random() * m--);
+      [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr;
+  };
+
+
 }

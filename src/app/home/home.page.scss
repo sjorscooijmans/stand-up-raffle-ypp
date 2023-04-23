@@ -1,9 +1,24 @@
+text {
+  background-color: #333;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 29px;
+}
+
+.header{
+  position: absolute;
+  top: 0;
+  left:50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 60%;
+}
+
 .wheel{
   position:absolute;
-  top:50%;
+  top:55%;
   left:50%;
-  width: 50%;
-  height: 50%;
+  width: 20vw;
+  height: 30vw;
   transform: translate(-50%,-50%);
   background-color: blue;
   overflow: hidden;
@@ -11,14 +26,13 @@
 
 .list{
   position: relative;
-  top:0;
+  top:-55vw;
 }
 
 .persoon{
   position:relative;
-  top:-100vh;
-  width: 50vw;
-  height: 50vh;
+  width: 20vw;
+  height: 20vw;
   background-color: red;
 }
 
@@ -26,17 +40,22 @@
   position: relative;
   top: 0;
   width: 100%;
-  // max-height: 100%;
 }
 
-.right{
+.arrow{
   position: absolute;
-  left: 15vw;
-  border-top: 7vw solid transparent;
-  border-bottom: 7vw solid transparent;
-  border-left: 7vw solid black;
+  top: 55vh;
+  transform: translateY(-50%);
+  left: 36vw;
+  border-top: 2vw solid transparent;
+  border-bottom: 2vw solid transparent;
+  border-left: 2vw solid black;
+  // background-color: red;
 }
 
-.arrow1{
-  top: 45vw;
+.spin{
+  position:absolute;
+  bottom: 10%;
+  width:20%;
+  left: 40%;
 }
