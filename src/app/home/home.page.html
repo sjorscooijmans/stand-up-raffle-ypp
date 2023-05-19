@@ -10,13 +10,23 @@
     </svg>
   </div>
 
+  <!-- <div class="wheel">
+    <div class = "list" *ngFor="let image of images" [@rotating]="start ? 'begin' : 'stage1'">
+      <div class="persoon">
+        <img class="image" src={{image}}>
+      </div>
+    </div>
+  </div>
+  <div class="arrow"></div> -->
+
+  <!-- [@position]="{value:position, params:{time:animationTime, left:leftPosition}}" -->
   <div class="wheel">
-    <div class = "list" *ngFor="let image of images" [@rotating]="start ? 'begin' : 'end'">
+    <div class = "list" *ngFor="let image of images" [@position]="{value:position, params:{spinTime0: spinTimeString[0], spinTime1: spinTimeString[1], spinTime2: spinTimeString[2], spinTime3: spinTimeString[3], spinTime4: spinTimeString[4], step0:steps[0], step1:steps[1], step2:steps[2], step3:steps[3], step4: steps[4]}}" >
       <div class="persoon">
         <img class="image" src={{image}}>
       </div>
     </div>
   </div>
   <div class="arrow"></div>
-  <ion-button class="spin" color="warning" (click)="start = !start">Spin To Win</ion-button>
+  <ion-button class="spin" color="warning" (click)="spinWheel()">Spinz To Win</ion-button>
 </ion-content>
