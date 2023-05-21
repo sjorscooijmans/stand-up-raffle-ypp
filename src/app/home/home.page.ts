@@ -65,9 +65,6 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
 
   sound = 'assets/sounds/endSound.wav'
-
-
-
   start = true
   position = 0
 
@@ -93,7 +90,8 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    this.winner()
+    // this.winner()
+    // this.test()
     this.imagesOld = this.names.map(item => `assets/ppics/${item}`)
     this.images = this.names.map(item => `assets/Profielfotos/${item}`)
     console.log(this.images)
@@ -109,20 +107,20 @@ export class HomePage {
   }
 
   setSteps(){
-    this.moveAmount[0] = this.randomIntFromInterval(350,450)
-    this.moveAmount[1] = this.randomIntFromInterval(this.moveAmount[0]+260,this.moveAmount[0]+350)
-    this.moveAmount[2] = this.randomIntFromInterval(this.moveAmount[1]+180,this.moveAmount[1]+260)
-    this.moveAmount[3] = this.randomIntFromInterval(this.moveAmount[2]+120,this.moveAmount[2]+180)
-    this.moveAmount[4] = this.randomIntFromInterval(this.moveAmount[3],this.moveAmount[3]+120)
+    this.moveAmount[0] = this.randomIntFromInterval(300,400)
+    this.moveAmount[1] = this.randomIntFromInterval(this.moveAmount[0]+240,this.moveAmount[0]+300)
+    this.moveAmount[2] = this.randomIntFromInterval(this.moveAmount[1]+200,this.moveAmount[1]+240)
+    this.moveAmount[3] = this.randomIntFromInterval(this.moveAmount[2]+160,this.moveAmount[2]+200)
+    this.moveAmount[4] = this.randomIntFromInterval(this.moveAmount[3],this.moveAmount[3]+160)
     this.steps[0] = `translateY(${this.moveAmount[0]}vw)`
     this.steps[1] = `translateY(${this.moveAmount[1]}vw)`
     this.steps[2] = `translateY(${this.moveAmount[2]}vw)`
     this.steps[3] = `translateY(${this.moveAmount[3]}vw)`
     this.steps[4] = `translateY(${this.moveAmount[4]}vw)`
-    this.spinTime[0]=this.moveAmount[0]/300
-    this.spinTime[1]=(this.moveAmount[1]-this.moveAmount[0])/200
-    this.spinTime[2]=(this.moveAmount[2]-this.moveAmount[1])/110
-    this.spinTime[3]=(this.moveAmount[3]-this.moveAmount[2])/70
+    this.spinTime[0]=this.moveAmount[0]/330
+    this.spinTime[1]=(this.moveAmount[1]-this.moveAmount[0])/240
+    this.spinTime[2]=(this.moveAmount[2]-this.moveAmount[1])/150
+    this.spinTime[3]=(this.moveAmount[3]-this.moveAmount[2])/120
     this.spinTime[4]=(this.moveAmount[4]-this.moveAmount[3])/30
     this.spinTimeString[0] = String(`${this.spinTime[0]}s`)
     this.spinTimeString[1] = String(`${this.spinTime[1]}s`)
@@ -131,13 +129,21 @@ export class HomePage {
     this.spinTimeString[4] = String(`${this.spinTime[4]}s`)
     console.log(this.steps)
     console.log(this.spinTimeString)
+
+    // this.moveAmount[0] = this.randomIntFromInterval(0,40)
+    // this.steps[0] = `translateY(${this.moveAmount[0]}vw)`
+    // this.spinTime[0]=this.moveAmount[0]/40
+    // this.spinTimeString[0] = String(`${this.spinTime[0]}s`)
   }
 
 
   spinWheel(){
-    this.winner()
+    // this.winner()
     this.start = !this.start
     this.position = 1
+    // setTimeout(()=>{
+    //   this.winner()
+    // }, (0.2+this.spinTime[0])*1000)
     setTimeout(()=>{
       this.position = 2
     }, this.spinTime[0]*1000)
@@ -151,7 +157,7 @@ export class HomePage {
       this.position = 5
     }, (this.spinTime[3]+this.spinTime[2]+this.spinTime[1]+this.spinTime[0])*1000)
     setTimeout(()=>{
-      this.winner
+      this.winner()
     }, (0.2+this.spinTime[4]+this.spinTime[3]+this.spinTime[2]+this.spinTime[1]+this.spinTime[0])*1000)
   }
 
@@ -169,19 +175,36 @@ export class HomePage {
   };
 
   winner(){
+    // setTimeout(()=>{
+    //   // je moet 0 kiezen als vw tussen -5 en 15 ligt
+    //   // je moet 1 kiezen als vw tussen 15 en 35 ligt
+    //   // je moet 2 kiezen als vw tussen 35 en 55 ligt
+    //   //list was moved up 1400vw, equal to 70 images
+    //   console.log((Math.floor((this.moveAmount[4]+5)/20)))
+    //   const a = 70-Math.floor((this.moveAmount[4]+5)/20)
+    //   console.log('images' + this.images[a])
+
+    // }, 200)
+    this.playSound()
+    let winnaar = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
+    winnaar = winnaar.replace("assets/Profielfotos/", "")
+    winnaar = winnaar.replace(".jpg", "")
+    winnaar = winnaar.replace(/([A-Z])/g, ' $1').trim()
+    console.log(winnaar)
     this.alertCtrl
       .create({
         backdropDismiss: false,
-        header: "Gefeliciteerd!🎉",
-        message: `Er zat een ladder verborgen in de gedenksteen. Waar kunnen jullie die goed gebruiken?`,
+        header: "Winnerrr!🎉",
+        message: `${winnaar} has the great honor to be responsible for the next standup host.😊`,
         buttons: [
           {
-            text: "Ga verder",
+            text: "Yess",
             handler: () => {
             },
           },
         ],
       })
+    .then((alertEl) => alertEl.present());
   }
 
 }
