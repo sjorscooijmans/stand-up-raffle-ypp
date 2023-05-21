@@ -1,6 +1,6 @@
 import os
 
-directory = "./src/assets/ppics"
+directory = "./src/assets/Profielfotos"
 ppics = []
 
 for filename in os.listdir(directory):

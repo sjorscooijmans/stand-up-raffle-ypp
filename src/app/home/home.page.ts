@@ -63,6 +63,11 @@ import { AlertController } from '@ionic/angular';
   ]
 })
 export class HomePage {
+
+  sound = 'assets/sounds/endSound.wav'
+
+
+
   start = true
   position = 0
 
@@ -78,7 +83,9 @@ export class HomePage {
     {name: 'test', image: 'assets/ppics/SjorsCooijmans.jpg'}
   ]
 
-  names: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BobBontje.jpg', 'BrittBroekman.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DaphneTetering.jpg', 'DeveneyPanfred.jpg', 'DiederikHagenbeek.jpg', 'DirkRoest.jpg', 'EmilieFacon.jpg', 'EvitaHoogeveen.jpg', 'FilippoBizzotto.jpg', 'FrancescaNiekerk.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'HuguetteElleswijk.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JoranEems.jpg', 'KellyWeenink.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LeonardMahieu.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LuisBarros Ramirez.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MarcGlowienke.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MeikeHendriks.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'OfekSverdlov.jpg', 'PauloFijen.jpg', 'PedroIraburu.jpg', 'PimDoodkorte.jpg', 'RemcoBruggen.jpg', 'RobSpreeuwel.jpg', 'RohanChatterjee.jpg', 'RomyRouwendaal.jpg', 'SaluteJingkaojai.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjorsCooijmans.jpg', 'SoniaKaczmarek.jpg', 'StanSolinge.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'YannikPeeters.jpg']
+  namesOld: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BobBontje.jpg', 'BrittBroekman.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DaphneTetering.jpg', 'DeveneyPanfred.jpg', 'DiederikHagenbeek.jpg', 'DirkRoest.jpg', 'EmilieFacon.jpg', 'EvitaHoogeveen.jpg', 'FilippoBizzotto.jpg', 'FrancescaNiekerk.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'HuguetteElleswijk.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JoranEems.jpg', 'KellyWeenink.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LeonardMahieu.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LuisBarros Ramirez.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MarcGlowienke.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MeikeHendriks.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'OfekSverdlov.jpg', 'PauloFijen.jpg', 'PedroIraburu.jpg', 'PimDoodkorte.jpg', 'RemcoBruggen.jpg', 'RobSpreeuwel.jpg', 'RohanChatterjee.jpg', 'RomyRouwendaal.jpg', 'SaluteJingkaojai.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjorsCooijmans.jpg', 'SoniaKaczmarek.jpg', 'StanSolinge.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'YannikPeeters.jpg']
+  names: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BilgeKasapoglu.jpg', 'BoudewijnSchiermeier.jpg', 'BrittBroekman.jpg', 'CasperCoumans.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DavidVichansky.jpg', 'DirkRoest.jpg', 'DuongLe.jpg', 'ElisabethNiederbacher.jpg', 'EmilieFacon.jpg', 'EvelynAntunes.jpg', 'EviSifaki.jpg', 'EvitaHoogeveen.jpg', 'FeliksRaap.jpg', 'FilippoBizzotto.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JulianMartens.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LaurienHobma.jpg', 'LeonardMahieu.jpg', 'LexKoelewijn.jpg', 'LisaCuesta Valentin.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LucijaMarjanovic.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MaxWilsum.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'MyrtheWouters.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'PaulPanǎ.jpg', 'PimDoodkorte.jpg', 'RamsyGhedamsi Dhifallah.jpg', 'RemcoBruggen.jpg', 'RohanChatterjee.jpg', 'SalimAzagouag.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjoerdTrommelen.jpg', 'SjorsCooijmans.jpg', 'SofiaMastrogianni.jpg', 'SoniaKaczmarek.jpg', 'SteinWillems.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'ZahraEftekhar.jpg']
+  imagesOld: string[] = []
   images: string[] = []
 
   constructor(
@@ -86,9 +93,15 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    this.images = this.names.map(item => `assets/ppics/${item}`)
+    this.winner()
+    this.imagesOld = this.names.map(item => `assets/ppics/${item}`)
+    this.images = this.names.map(item => `assets/Profielfotos/${item}`)
     console.log(this.images)
     this.setSteps()
+  }
+
+  playSound(){
+    new Audio(this.sound).play();
   }
 
   randomIntFromInterval(min: number, max: number) { // min and max included
@@ -122,6 +135,7 @@ export class HomePage {
 
 
   spinWheel(){
+    this.winner()
     this.start = !this.start
     this.position = 1
     setTimeout(()=>{
@@ -155,21 +169,19 @@ export class HomePage {
   };
 
   winner(){
-    // this.alertCtrl
-    //   .create({
-    //     backdropDismiss: false,
-    //     header: "Gefeliciteerd!🎉",
-    //     message: `Er zat een ladder verborgen in de gedenksteen. Waar kunnen jullie die goed gebruiken?
-    //     <br>
-    //     <img src="${assets/img/nijmegen/kronenburgerpark/Nieuwsbericht/headline.jpg}" class="item-alert">`,
-    //     buttons: [
-    //       {
-    //         text: "Ga verder",
-    //         handler: () => {
-    //         },
-    //       },
-    //     ],
-    //   })
+    this.alertCtrl
+      .create({
+        backdropDismiss: false,
+        header: "Gefeliciteerd!🎉",
+        message: `Er zat een ladder verborgen in de gedenksteen. Waar kunnen jullie die goed gebruiken?`,
+        buttons: [
+          {
+            text: "Ga verder",
+            handler: () => {
+            },
+          },
+        ],
+      })
   }
 
 }
