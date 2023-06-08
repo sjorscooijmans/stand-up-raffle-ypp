@@ -13,8 +13,6 @@ import { AlertController } from '@ionic/angular';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  // standalone: true,
-  // imports: [BrowserAnimationsModule],
   animations: [
     trigger('position', [
       state('0', style({
@@ -75,9 +73,7 @@ export class HomePage {
   spinTime = [0]
   spinTimeString = ['20s']
 
-  namesOld: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BobBontje.jpg', 'BrittBroekman.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DaphneTetering.jpg', 'DeveneyPanfred.jpg', 'DiederikHagenbeek.jpg', 'DirkRoest.jpg', 'EmilieFacon.jpg', 'EvitaHoogeveen.jpg', 'FilippoBizzotto.jpg', 'FrancescaNiekerk.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'HuguetteElleswijk.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JoranEems.jpg', 'KellyWeenink.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LeonardMahieu.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LuisBarros Ramirez.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MarcGlowienke.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MeikeHendriks.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'OfekSverdlov.jpg', 'PauloFijen.jpg', 'PedroIraburu.jpg', 'PimDoodkorte.jpg', 'RemcoBruggen.jpg', 'RobSpreeuwel.jpg', 'RohanChatterjee.jpg', 'RomyRouwendaal.jpg', 'SaluteJingkaojai.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjorsCooijmans.jpg', 'SoniaKaczmarek.jpg', 'StanSolinge.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'YannikPeeters.jpg']
   names: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BilgeKasapoglu.jpg', 'BoudewijnSchiermeier.jpg', 'BrittBroekman.jpg', 'CasperCoumans.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DavidVichansky.jpg', 'DirkRoest.jpg', 'DuongLe.jpg', 'ElisabethNiederbacher.jpg', 'EmilieFacon.jpg', 'EvelynAntunes.jpg', 'EviSifaki.jpg', 'EvitaHoogeveen.jpg', 'FeliksRaap.jpg', 'FilippoBizzotto.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JulianMartens.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LaurienHobma.jpg', 'LeonardMahieu.jpg', 'LexKoelewijn.jpg', 'LisaCuesta Valentin.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LucijaMarjanovic.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MaxWilsum.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'MyrtheWouters.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'PaulPanǎ.jpg', 'PimDoodkorte.jpg', 'RamsyGhedamsi Dhifallah.jpg', 'RemcoBruggen.jpg', 'RohanChatterjee.jpg', 'SalimAzagouag.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjoerdTrommelen.jpg', 'SjorsCooijmans.jpg', 'SofiaMastrogianni.jpg', 'SoniaKaczmarek.jpg', 'SteinWillems.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'ZahraEftekhar.jpg']
-  imagesOld: string[] = []
   images: string[] = []
 
   constructor(
@@ -85,9 +81,6 @@ export class HomePage {
   ) {}
 
   ngOnInit() {
-    // this.winner()
-    // this.test()
-    this.imagesOld = this.names.map(item => `assets/ppics/${item}`)
     this.images = this.names.map(item => `assets/Profielfotos/${item}`)
     console.log(this.images)
     this.setSteps()
@@ -124,21 +117,12 @@ export class HomePage {
     this.spinTimeString[4] = String(`${this.spinTime[4]}s`)
     console.log(this.steps)
     console.log(this.spinTimeString)
-
-    // this.moveAmount[0] = this.randomIntFromInterval(0,40)
-    // this.steps[0] = `translateY(${this.moveAmount[0]}vw)`
-    // this.spinTime[0]=this.moveAmount[0]/40
-    // this.spinTimeString[0] = String(`${this.spinTime[0]}s`)
   }
 
 
   spinWheel(){
-    // this.winner()
     this.start = !this.start
     this.position = 1
-    // setTimeout(()=>{
-    //   this.winner()
-    // }, (0.2+this.spinTime[0])*1000)
     setTimeout(()=>{
       this.position = 2
     }, this.spinTime[0]*1000)
@@ -170,43 +154,13 @@ export class HomePage {
   };
 
   winner(){
-    // setTimeout(()=>{
-    //   // je moet 0 kiezen als vw tussen -5 en 15 ligt
-    //   // je moet 1 kiezen als vw tussen 15 en 35 ligt
-    //   // je moet 2 kiezen als vw tussen 35 en 55 ligt
-    //   //list was moved up 1400vw, equal to 70 images
-    //   console.log((Math.floor((this.moveAmount[4]+5)/20)))
-    //   const a = 70-Math.floor((this.moveAmount[4]+5)/20)
-    //   console.log('images' + this.images[a])
-
-    // }, 200)
     this.popup=true
     this.playSound()
     this.winnerSpin.img = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
-    // this.winnerSpin.img = 'assets/Profielfotos/SofiaMastrogianni.jpg'
     this.winnerSpin.name = this.winnerSpin.img.replace("assets/Profielfotos/", "")
     this.winnerSpin.name = this.winnerSpin.name.replace(".jpg", "")
     this.winnerSpin.name = this.winnerSpin.name.replace(/([A-Z])/g, ' $1').trim()
-    // let winnaar = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
     console.log(this.winnerSpin)
-    // winnaar = winnaar.replace("assets/Profielfotos/", "")
-    // winnaar = winnaar.replace(".jpg", "")
-    // winnaar = winnaar.replace(/([A-Z])/g, ' $1').trim()
-    // console.log(winnaar)
-    // this.alertCtrl
-    //   .create({
-    //     backdropDismiss: false,
-    //     header: "Winnerrr!🎉",
-    //     message: `${winnaar} has the great honor to be responsible for the next standup host.😊`,
-    //     buttons: [
-    //       {
-    //         text: "Yess",
-    //         handler: () => {
-    //         },
-    //       },
-    //     ],
-    //   })
-    // .then((alertEl) => alertEl.present());
   }
 
 }
