@@ -4,6 +4,33 @@ text {
   font-size: 29px;
 }
 
+.pop-up{
+  position: absolute;
+  top: 50vh;
+  left: 37vw;
+  // background-color: #333;
+  width: 26vw;
+  height: 50vw;
+  border-radius: 2vw;
+  transform: translateY(-50%);
+}
+
+ion-card-title {
+  font-size: 3vw;
+}
+
+ion-card-content{
+  font-size: 1.5vw;
+}
+
+.card{
+  position: relative;
+  height: 95%;
+  width: 95%;
+  border-radius: 2vw;
+  box-shadow: 0 3px 1vw rgb(0 0 0 / 0.5);
+}
+
 .header{
   position: absolute;
   top: 0;

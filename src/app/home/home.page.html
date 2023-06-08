@@ -19,4 +19,18 @@
   </div>
   <div class="arrow"></div>
   <ion-button class="spin" color="warning" (click)="spinWheel()">Spinz To Win</ion-button>
+
+  <!--   -->
+  <div *ngIf="popup" class="pop-up">
+    <ion-card class="card">
+      <img style="position: relative; width: 100%;" alt="Silhouette of mountains" src="{{winnerSpin.img}}" />
+      <ion-card-header>
+        <ion-card-title class="title">{{winnerSpin.name}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        has the great honor to be responsible for the next standup host.😊
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

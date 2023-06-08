@@ -63,8 +63,9 @@ import { AlertController } from '@ionic/angular';
   ]
 })
 export class HomePage {
-
+  popup = false;
   sound = 'assets/sounds/endSound.wav'
+  winnerSpin = {name: '', img: ''}
   start = true
   position = 0
 
@@ -73,12 +74,6 @@ export class HomePage {
   moveAmount = [1]
   spinTime = [0]
   spinTimeString = ['20s']
-
-  personen = [
-    {name: 'leonard', image: 'assets/personen/Leo.PNG'},
-    {name: 'sjors', image: 'assets/personen/sjors.png'},
-    {name: 'test', image: 'assets/ppics/SjorsCooijmans.jpg'}
-  ]
 
   namesOld: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BobBontje.jpg', 'BrittBroekman.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DaphneTetering.jpg', 'DeveneyPanfred.jpg', 'DiederikHagenbeek.jpg', 'DirkRoest.jpg', 'EmilieFacon.jpg', 'EvitaHoogeveen.jpg', 'FilippoBizzotto.jpg', 'FrancescaNiekerk.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'HuguetteElleswijk.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JoranEems.jpg', 'KellyWeenink.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LeonardMahieu.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LuisBarros Ramirez.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MarcGlowienke.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MeikeHendriks.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'OfekSverdlov.jpg', 'PauloFijen.jpg', 'PedroIraburu.jpg', 'PimDoodkorte.jpg', 'RemcoBruggen.jpg', 'RobSpreeuwel.jpg', 'RohanChatterjee.jpg', 'RomyRouwendaal.jpg', 'SaluteJingkaojai.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjorsCooijmans.jpg', 'SoniaKaczmarek.jpg', 'StanSolinge.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'YannikPeeters.jpg']
   names: string[] = ['AdrianaCorreia.jpg', 'AmiranDjibuti.jpg', 'AndréFerreira.jpg', 'AndréVallendar.jpg', 'AnouarBousraou.jpg', 'ArjanVuuren.jpg', 'BartSloun.jpg', 'BartZoete.jpg', 'BasBloemendaal.jpg', 'BilgeKasapoglu.jpg', 'BoudewijnSchiermeier.jpg', 'BrittBroekman.jpg', 'CasperCoumans.jpg', 'CasperEissens.jpg', 'CatalinaPanturu.jpg', 'ClémenceSautai.jpg', 'DavidVichansky.jpg', 'DirkRoest.jpg', 'DuongLe.jpg', 'ElisabethNiederbacher.jpg', 'EmilieFacon.jpg', 'EvelynAntunes.jpg', 'EviSifaki.jpg', 'EvitaHoogeveen.jpg', 'FeliksRaap.jpg', 'FilippoBizzotto.jpg', 'GeorgeStavropoulos.jpg', 'GergelyPopoluska.jpg', 'GlaraSofi.jpg', 'JoanneTjan.jpg', 'JobSierkstra.jpg', 'JochemBoeter.jpg', 'JulianMartens.jpg', 'KerimDelic.jpg', 'KevinKho.jpg', 'KoenHoogkamp.jpg', 'LaurienHobma.jpg', 'LeonardMahieu.jpg', 'LexKoelewijn.jpg', 'LisaCuesta Valentin.jpg', 'LiviaKempkens.jpg', 'LucBochove.jpg', 'LucijaMarjanovic.jpg', 'LukasMiaskiwskyi.jpg', 'MaartenEnthoven.jpg', 'MariaNolten.jpg', 'MartijnScheve.jpg', 'MaxWilsum.jpg', 'MichaelKoster.jpg', 'MichelPham.jpg', 'MichielHeeneman.jpg', 'MuratBaş.jpg', 'MyrtheWouters.jpg', 'NielisBrouwer.jpg', 'NielsMeulmeester.jpg', 'PaulPanǎ.jpg', 'PimDoodkorte.jpg', 'RamsyGhedamsi Dhifallah.jpg', 'RemcoBruggen.jpg', 'RohanChatterjee.jpg', 'SalimAzagouag.jpg', 'SamuelPirlo.jpg', 'SanderNobel.jpg', 'SanderVeen.jpg', 'SemMeeder.jpg', 'ShiwenNi.jpg', 'SianTee.jpg', 'SjoerdTrommelen.jpg', 'SjorsCooijmans.jpg', 'SofiaMastrogianni.jpg', 'SoniaKaczmarek.jpg', 'SteinWillems.jpg', 'TaboWeitzel.jpg', 'ThijmenGoossens.jpg', 'TomDouven.jpg', 'TomFijen.jpg', 'TwanStegeman.jpg', 'WillemHouck.jpg', 'XinyiWang.jpg', 'ZahraEftekhar.jpg']
@@ -185,26 +180,33 @@ export class HomePage {
     //   console.log('images' + this.images[a])
 
     // }, 200)
+    this.popup=true
     this.playSound()
-    let winnaar = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
-    winnaar = winnaar.replace("assets/Profielfotos/", "")
-    winnaar = winnaar.replace(".jpg", "")
-    winnaar = winnaar.replace(/([A-Z])/g, ' $1').trim()
-    console.log(winnaar)
-    this.alertCtrl
-      .create({
-        backdropDismiss: false,
-        header: "Winnerrr!🎉",
-        message: `${winnaar} has the great honor to be responsible for the next standup host.😊`,
-        buttons: [
-          {
-            text: "Yess",
-            handler: () => {
-            },
-          },
-        ],
-      })
-    .then((alertEl) => alertEl.present());
+    this.winnerSpin.img = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
+    // this.winnerSpin.img = 'assets/Profielfotos/SofiaMastrogianni.jpg'
+    this.winnerSpin.name = this.winnerSpin.img.replace("assets/Profielfotos/", "")
+    this.winnerSpin.name = this.winnerSpin.name.replace(".jpg", "")
+    this.winnerSpin.name = this.winnerSpin.name.replace(/([A-Z])/g, ' $1').trim()
+    // let winnaar = this.images[70-Math.floor((this.moveAmount[4]+5)/20)]
+    console.log(this.winnerSpin)
+    // winnaar = winnaar.replace("assets/Profielfotos/", "")
+    // winnaar = winnaar.replace(".jpg", "")
+    // winnaar = winnaar.replace(/([A-Z])/g, ' $1').trim()
+    // console.log(winnaar)
+    // this.alertCtrl
+    //   .create({
+    //     backdropDismiss: false,
+    //     header: "Winnerrr!🎉",
+    //     message: `${winnaar} has the great honor to be responsible for the next standup host.😊`,
+    //     buttons: [
+    //       {
+    //         text: "Yess",
+    //         handler: () => {
+    //         },
+    //       },
+    //     ],
+    //   })
+    // .then((alertEl) => alertEl.present());
   }
 
 }
